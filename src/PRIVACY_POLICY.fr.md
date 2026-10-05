@@ -2,7 +2,7 @@
 
 **Date d'entrée en vigueur :** 22 septembre 2026
 
-**Dernière mise à jour :** 22 septembre 2026
+**Dernière mise à jour :** 5 octobre 2026
 
 ---
 
@@ -321,8 +321,9 @@ relancés en cas d'interruption.
   être retenté. La réinitialisation, l'effacement des données ou la désinstallation supprime
   les données locales selon le comportement du système d'exploitation.
 - **Sur notre backend :** les réponses d'enquête, les médias, l'audio ainsi que les données de
-  compte et d'audit associées sont conservés pendant **3 mois** après la collecte, puis
-  supprimés.
+  compte et d'audit associées sont conservés uniquement le temps nécessaire à l'étude pour
+  laquelle ils ont été collectés et aux obligations légales ou contractuelles qui s'y
+  rattachent, puis supprimés ou anonymisés.
 - **Inscription du jeton push :** le backend conserve un jeton tant qu'il est associé à un
   appareil/compte authentifié pour la livraison des notifications. L'Application demande sa
   suppression lors de la déconnexion ou d'un changement de compte et enregistre un échec hors

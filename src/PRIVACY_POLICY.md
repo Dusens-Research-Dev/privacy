@@ -2,7 +2,7 @@
 
 **Effective date:** 22 September 2026
 
-**Last updated:** 22 September 2026
+**Last updated:** 5 October 2026
 
 ---
 
@@ -282,7 +282,8 @@ automatically if interrupted.
   succeeds; failed cleanup remains queued for retry. App reset, clearing App data, or
   uninstalling the App removes local data according to the operating system's behavior.
 - **On our backend:** survey responses, media, audio, and the related account and audit data
-  are retained for **3 months** after collection, then deleted.
+  are kept only as long as needed for the study they were collected for and for any related
+  legal or contractual obligations, then deleted or anonymised.
 - **Push-token registration:** the backend keeps a token while it is associated with an
   authenticated device/account for notification delivery. The App requests deletion on logout
   or account switch and records a failed offline request for a later authenticated retry; a
