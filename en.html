@@ -263,8 +263,8 @@ header.site .brand{font-size:.85rem; letter-spacing:.1em}
 <main class="doc">
 <h1 class="unlisted" id="privacy-policy--dusens">Privacy Policy —
 Dusens</h1>
-<p><strong>Effective date:</strong> 26 June 2026 <strong>Last
-updated:</strong> 26 June 2026</p>
+<p><strong>Effective date:</strong> 22 September 2026</p>
+<p><strong>Last updated:</strong> 22 September 2026</p>
 <hr />
 <h2 id="summary-plain-language">Summary (plain language)</h2>
 <p>Dusens is a field-survey app used by our trained investigators and
@@ -279,6 +279,10 @@ recording audio, taking photos, or capturing location.</li>
 <li>Data is stored on the device for offline use, then sent over an
 encrypted connection to <strong>our backend, hosted in Algeria</strong>
 by an authorized provider.</li>
+<li>When an App user allows notifications, we collect a device push
+token to deliver timely returned-response notifications. Push is
+optional; the authenticated response pull remains the source of
+truth.</li>
 <li>We do <strong>not</strong> show ads, sell data, or use marketing
 trackers.</li>
 <li>You can ask to <strong>see, correct, or delete</strong> your data,
@@ -388,40 +392,79 @@ camera</strong>, not the App’s location permission.</p>
 <strong>session audio</strong> (AAC/m4a) for quality-review purposes,
 with timestamps marking which question was active. This recording
 <strong>may capture the voices of survey subjects and
-bystanders</strong>.</p>
+bystanders</strong>. The App records audio only while it is open in the
+foreground; it does not record in the background.</p>
 <blockquote>
 <p><strong>Recording consent.</strong> Before any audio recording, our
 investigators are trained to <strong>tell the person that audio is being
 recorded and obtain their consent.</strong> Recording someone who has
-not consented is prohibited by our policy. (On iOS the App declares a
-background-audio capability, so recording may continue if a session is
-active while the App is backgrounded.)</p>
+not consented is prohibited by our policy.</p>
 </blockquote>
 <h3 id="36-device-and-technical-information">3.6 Device and technical
 information</h3>
-<p>With each survey response we collect: platform (iOS/Android),
-operating-system version, App version, device model and manufacturer,
-and identifiers that associate the response with the submitting account
-(<strong>including the user identifier</strong>) and the device/session.
-We do <strong>not</strong> collect hardware identifiers (e.g., IMEI),
-advertising identifiers (IDFA/AAID), or phone numbers.</p>
-<h3 id="37-diagnostics-and-crash-data">3.7 Diagnostics and crash
-data</h3>
-<p>The App uses <strong>Sentry</strong> for crash reporting and
-diagnostics. When an error occurs, the App may send error messages and
-stack traces, a trail of recent in-app events (“breadcrumbs”),
-App/device context, and a <strong>one-way hashed</strong> user
-identifier used only to correlate reports. We <strong>configure Sentry
-to redact</strong> sensitive fields before sending — including tokens,
-passwords, email, phone, address, and latitude/longitude — but redaction
-is best-effort by field name, so <strong>residual personal data could
-still appear</strong> in a stack trace. Sentry servers are outside
-Algeria; see <a href="#s11">Section 11</a>.</p>
-<h3 id="38-what-we-do-not-collect">3.8 What we do <strong>not</strong>
-collect</h3>
-<p>Contacts, calendar, SMS/messages, browsing history, financial or
-payment information, health data, advertising identifiers, and
-push-notification tokens (the App has no push capability).</p>
+<p>With each survey response we may collect, where available: platform
+(iOS/Android), operating-system version, App version, device model and
+manufacturer, and identifiers that associate the response with the
+submitting account (<strong>including the user identifier</strong>) and
+the device/session. The device identifier is an opaque UUID generated
+and stored by this App installation; it remains the same when an
+investigator logs out or another investigator uses the same
+installation, and it is replaced when the App is reinstalled or its App
+data is completely reset. It is not a hardware identifier and is not
+shared with advertising services. We do <strong>not</strong> collect
+hardware identifiers (e.g., IMEI) or advertising identifiers
+(IDFA/AAID).</p>
+<h3 id="37-push-notification-tokens-app-users">3.7 Push-notification
+tokens (App users)</h3>
+<p>When an App user grants the operating system’s notification
+permission, the App obtains an Expo push token and sends it over HTTPS
+to our backend with the platform and a stable installation identifier.
+The backend associates the token with the authenticated user,
+organization, and device so it can deliver a timely notice when one of
+that user’s responses is returned for correction. A denied permission
+means that no token is sent; the App continues to work pull-only.</p>
+<p>The token is a device/account-linked routing identifier, not survey
+content. On logout or an account switch, the App requests removal of the
+token using the retiring session’s identity. If the device is offline,
+the failed removal is recorded locally and retried when the owning
+account is authenticated again; a successful registration under a new
+account reassigns the token. Push delivery can expose a response
+identifier/code and the reviewer’s return reason in the device
+notification, subject to the device’s notification and lock-screen
+settings. Survey answers, media, audio, and GPS are not included in the
+push payload.</p>
+<h3 id="38-diagnostics-performance-and-problem-reports">3.8 Diagnostics,
+performance, and problem reports</h3>
+<p>The App uses <strong>Sentry</strong> for automatic crash and error
+reporting and samples approximately <strong>20% of performance
+traces</strong>. These reports may include error messages and stack
+traces, a trail of recent in-app events (“breadcrumbs”), App/device
+context, and a <strong>hashed, pseudonymous user identifier</strong>
+used to correlate reports. Hashing reduces direct identifiability but
+does not make the identifier irreversibly anonymous.</p>
+<p>If an App user chooses <strong>Report a problem</strong>, Sentry also
+receives the user’s free-text description and a diagnostic snapshot
+containing App, build, device, connectivity, and sync status (including
+pending/failed counts and the last successful sync time). The user may
+optionally select and attach a screenshot. Screenshots can contain
+personal or survey data and <strong>cannot be automatically
+redacted</strong>, so the user must review the selected image before
+sending it.</p>
+<p>We configure Sentry to redact named sensitive fields before sending —
+including tokens, passwords, email, phone, address, latitude/longitude,
+and durable user, session, response, and media identifiers — but this
+filtering is best-effort. Residual personal data could still appear in
+free text, a stack trace, or an unrecognised field. Sentry servers are
+outside Algeria; see <a href="#s11">Section 11</a>.</p>
+<h3 id="39-what-we-do-not-access-automatically">3.9 What we do
+<strong>not</strong> access automatically</h3>
+<p>The App does not request access to the operating system’s contacts,
+calendar, SMS/messages, browsing history, or advertising identifier, and
+it does not collect the contents of other apps’ notifications. Surveys
+are authored dynamically, however, so answers, free text, signatures,
+and selected or captured media may contain personal, financial, health,
+phone, or other information requested by a particular survey. That
+survey content is handled as described in this policy.</p>
 <hr />
 <h2 id="4-how-we-use-information">4. How we use information</h2>
 <table>
@@ -444,13 +487,20 @@ connectivity returns.</td>
 verify and review collected survey data.</td>
 </tr>
 <tr>
+<td><strong>Timely response notices</strong></td>
+<td>Sending an optional push notification when a reviewer’s decision
+returns one of the authenticated user’s responses; the response pull
+remains authoritative.</td>
+</tr>
+<tr>
 <td><strong>Security</strong></td>
 <td>On-device audit log of survey events; detecting and investigating
 misuse.</td>
 </tr>
 <tr>
-<td><strong>App reliability</strong></td>
-<td>Crash and error diagnostics to fix defects.</td>
+<td><strong>App reliability and support</strong></td>
+<td>Automatic crash/error reports, sampled performance traces, and
+problem reports submitted by users to diagnose defects.</td>
 </tr>
 </tbody>
 </table>
@@ -510,9 +560,9 @@ picker).</td>
 <td>Sync surveys, responses, and media with our backend.</td>
 </tr>
 <tr>
-<td><strong>Foreground service (Android)</strong></td>
-<td>Keep audio <strong>recording</strong> running reliably during a
-session.</td>
+<td><strong>Notifications</strong></td>
+<td>Receive optional returned-response notices; denying this permission
+leaves the App pull-only.</td>
 </tr>
 </tbody>
 </table>
@@ -532,8 +582,26 @@ Keystore-backed store), encrypted at rest.</li>
 <li>For <strong>offline use</strong>, survey drafts, the sync queue, the
 audit log, and captured media (photos, video, audio) are stored in the
 App’s local storage on the device, within the operating system’s app
-sandbox.</li>
+sandbox. This survey data is <strong>not encrypted by a separate
+App-level encryption layer</strong>; it relies on the device and
+operating system’s access controls and any device-level encryption.</li>
+<li>The stable installation identifier used to bind an optional push
+token is stored locally in App preferences. While a registration or
+failed removal is being reconciled, the App also stores the push token
+and its organization/user/device owner record locally; bearer
+credentials are never stored in these ledgers. The push token is held by
+the notification provider and our backend for delivery; it is not used
+to read survey content.</li>
 </ul>
+<h3 id="71-local-storage-and-cookies">7.1 Local storage and cookies</h3>
+<p>This native mobile App uses the local preferences, offline databases,
+files, and secure authentication storage described above. The audited
+App code does not configure browser cookies, advertising cookies, or web
+advertising trackers. Optional push notifications and the user-initiated
+problem-report feature operate as disclosed in this policy. Any
+separately hosted website must be assessed under its own website and
+hosting configuration before making claims about its cookies or deciding
+whether it requires a cookie banner.</p>
 <p><strong>On our backend.</strong> Submitted data is hosted <strong>in
 Algeria</strong> by a service provider authorized for this purpose,
 under our instructions and a data-processing agreement.</p>
@@ -566,9 +634,12 @@ devices to <strong>+213 770 776 695</strong> immediately.</p>
 <td><strong>Sentry</strong> (Functional Software, Inc.)</td>
 <td>Processor</td>
 <td><strong>Outside Algeria (US)</strong></td>
-<td>Crash reporting / diagnostics</td>
-<td>Error reports, breadcrumbs, hashed user ID, device/App context
-(sensitive fields redacted; residual risk)</td>
+<td>Crash/error reporting, sampled performance monitoring, and
+user-submitted problem reports</td>
+<td>Error reports, breadcrumbs, pseudonymous hashed user ID, device/App
+and sync diagnostics, free-text problem description, and an optional
+user-selected screenshot (sensitive fields filtered where possible;
+residual risk)</td>
 </tr>
 <tr>
 <td><strong>Expo / EAS</strong></td>
@@ -577,12 +648,31 @@ devices to <strong>+213 770 776 695</strong> immediately.</p>
 <td>Over-the-air App updates</td>
 <td>Update-check requests and device/App metadata</td>
 </tr>
+<tr>
+<td><strong>Expo push service</strong></td>
+<td>Processor</td>
+<td><strong>Outside Algeria</strong></td>
+<td>Delivering optional returned-response notifications</td>
+<td>Push token, platform/device identifier, and notification payload
+containing response metadata and the reviewer’s return reason</td>
+</tr>
+<tr>
+<td><strong>Apple Push Notification service / Firebase Cloud
+Messaging</strong></td>
+<td>Platform notification service</td>
+<td>Outside Algeria (provider regions)</td>
+<td>Delivering notifications to iOS/Android devices through Expo</td>
+<td>Push token and the notification payload needed for delivery</td>
+</tr>
 </tbody>
 </table>
 <blockquote>
 <p>Our processors are bound by <strong>data-processing
-agreements</strong>. Sentry and Expo receive only non-identifying
-technical data — see <a href="#s11">Section 11</a>.</p>
+agreements</strong>. Sentry receives diagnostics, user-submitted
+problem-report text, and any screenshot the user chooses to attach; the
+notification services receive the token and payload needed to deliver a
+push; survey answers, media, audio, and GPS are not sent in the push
+payload. See <a href="#s11">Section 11</a>.</p>
 </blockquote>
 <hr />
 <h2 id="9-offline-operation-and-synchronization">9. Offline operation
@@ -594,26 +684,45 @@ interrupted.</p>
 <hr />
 <h2 id="10-data-retention">10. Data retention</h2>
 <ul>
-<li><strong>On the device:</strong> survey drafts and media remain on
-the device until they are synced.</li>
+<li><strong>On the device:</strong> survey drafts, submitted-session
+snapshots, outbox rows, audit records, and media can remain in the App
+sandbox while they are needed for offline work, retry, review, or safe
+cleanup. Successful synchronization does not by itself guarantee
+immediate deletion of every local record. Uploaded local media is
+deleted when its cleanup step succeeds; failed cleanup remains queued
+for retry. App reset, clearing App data, or uninstalling the App removes
+local data according to the operating system’s behavior.</li>
 <li><strong>On our backend:</strong> survey responses, media, audio, and
 the related account and audit data are retained for <strong>3
 months</strong> after collection, then deleted.</li>
+<li><strong>Push-token registration:</strong> the backend keeps a token
+while it is associated with an authenticated device/account for
+notification delivery. The App requests deletion on logout or account
+switch and records a failed offline request for a later authenticated
+retry; a successful registration by another account supersedes the old
+association. The local token and owner record are removed after
+successful release (or when a later registration supersedes them),
+subject to the App’s reset/uninstall behavior.</li>
 </ul>
 <p>Law 18-07 requires that personal data be kept no longer than
 necessary for the purposes for which it was collected.</p>
 <hr />
 <h2 id="s11">11. Transfers of data outside Algeria</h2>
 <p>Survey data and account data are stored <strong>in Algeria</strong>.
-We do <strong>not</strong> send identifiable personal data outside
-Algeria. The only services located outside Algeria are
-<strong>Sentry</strong> (crash diagnostics) and <strong>Expo</strong>
-(App updates), and we limit what they receive to <strong>non-identifying
-technical data</strong>: data sent to Sentry is stripped of direct
-identifiers (sensitive fields redacted; the user identifier one-way
-hashed), and Expo receives only the device/App metadata needed to
-deliver updates. We do not transfer survey responses, media, audio, or
-location to these services.</p>
+Push-token delivery adds a separate transfer: the token and the limited
+notification payload are sent to the <strong>Expo push service</strong>
+and, as applicable, <strong>Apple Push Notification service
+(APNs)</strong> or <strong>Firebase Cloud Messaging (FCM)</strong>,
+which are outside Algeria or operate through provider regions outside
+Algeria. The payload can contain a response identifier/code and the
+reviewer’s return reason so the device can show the notice. We do not
+transfer survey answers, media, audio, or GPS in that push payload.
+Sentry separately receives automatic diagnostics and sampled performance
+traces, plus the free text and optional screenshot an App user
+deliberately sends through <strong>Report a problem</strong>. Named
+sensitive fields are filtered where possible; an attached screenshot is
+not automatically redacted. The Sentry user identifier is hashed and
+pseudonymous, as described above.</p>
 <hr />
 <h2 id="s12">12. Your rights</h2>
 <p>Under Law 18-07 you may ask to <strong>access</strong> your data,
@@ -646,7 +755,7 @@ itself constitute consent to new processing.</p>
 <hr />
 <h2 id="15-contact-us">15. Contact us</h2>
 <ul>
-<li><strong>Email / phone:</strong> +213 770 776 695</li>
+<li><strong>Phone:</strong> +213 770 776 695</li>
 <li><strong>Postal:</strong> DUSENS RESEARCH, N 91 Ali Khoudja, El Biar,
 Algeria (DZ)</li>
 </ul>
@@ -732,11 +841,29 @@ shared with.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td>App info &amp; performance (crash logs, diagnostics)</td>
+<td>Push token and installation identifier</td>
+<td>Yes, when notifications are allowed</td>
+<td>Backend and push delivery providers</td>
+<td>Timely returned-response notices</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>App info &amp; performance (crash/error logs, diagnostics, sampled
+performance traces)</td>
 <td>Yes</td>
 <td>Sentry</td>
 <td>App stability</td>
 <td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Problem report (free text, device/sync diagnostics, optional
+selected screenshot)</td>
+<td>Only when a user submits it</td>
+<td>Sentry</td>
+<td>User support and defect diagnosis</td>
+<td>Optional</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -749,7 +876,8 @@ shared with.</p>
 </tr>
 <tr>
 <td>Device or other IDs</td>
-<td>Yes (user/response/session IDs; no hardware/ad IDs)</td>
+<td>Yes (opaque per-install App ID plus user/response/session IDs; no
+hardware/ad IDs)</td>
 <td>Backend</td>
 <td>App functionality</td>
 <td>Required</td>
@@ -766,7 +894,6 @@ shared with.</p>
 </tbody>
 </table>
 <p>You can ask us to delete your data at any time — see <a href="#s12">Section 12</a>.</p>
-</main>
-<footer class="site-foot" dir="ltr">© 2026 DUSENS RESEARCH · N 91 Ali Khoudja, El Biar, Algeria (DZ) · +213 770 776 695</footer>
+<footer class="site-foot" dir="ltr"><a href="index.html">Privacy Policy</a> · <a href="terms-fr.html">Terms of Service</a><br>© 2026 DUSENS RESEARCH · N 91 Ali Khoudja, El Biar, Algeria (DZ) · +213 770 776 695</footer>
 </body>
 </html>
