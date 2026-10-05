@@ -1,4 +1,4 @@
-# Politique de confidentialité — Dusens {.unlisted}
+# Politique de confidentialité — SensQuest {.unlisted}
 
 **Date d'entrée en vigueur :** 22 septembre 2026
 
@@ -8,7 +8,7 @@
 
 ## Résumé (langage clair)
 
-Dusens est une application d'enquête de terrain utilisée par nos enquêteurs et superviseurs
+SensQuest est une application d'enquête de terrain utilisée par nos enquêteurs et superviseurs
 formés pour collecter des données d'enquête en Algérie. En résumé :
 
 - Nous collectons des **réponses d'enquête** et — lorsqu'une enquête l'exige — des **photos,

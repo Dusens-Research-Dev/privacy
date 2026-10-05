@@ -1,14 +1,14 @@
-# Conditions d'utilisation — Dusens
+# Conditions d'utilisation — SensQuest
 
 **Version :** 22 septembre 2026
 
 ## Exploitant de l'application
 
-Dusens est exploitée par DUSENS RESEARCH, N 91 Ali Khoudja, El Biar, Algérie. Pour l'assistance, la récupération de compte ou les demandes relatives à vos données, contactez le +213 770 776 695.
+SensQuest est exploitée par DUSENS RESEARCH, N 91 Ali Khoudja, El Biar, Algérie. Pour l'assistance, la récupération de compte ou les demandes relatives à vos données, contactez le +213 770 776 695.
 
 ## Utilisateurs autorisés
 
-Dusens est un outil d'enquête de terrain réservé aux enquêteurs et superviseurs adultes autorisés. Votre organisation fournit votre compte et vos enquêtes. Utilisez uniquement votre propre compte autorisé et les permissions de votre rôle. Contactez votre organisation si vos accès sont incorrects ou si vous ne pouvez pas vous connecter.
+SensQuest est un outil d'enquête de terrain réservé aux enquêteurs et superviseurs adultes autorisés. Votre organisation fournit votre compte et vos enquêtes. Utilisez uniquement votre propre compte autorisé et les permissions de votre rôle. Contactez votre organisation si vos accès sont incorrects ou si vous ne pouvez pas vous connecter.
 
 ## Collecte responsable
 
@@ -24,7 +24,7 @@ La politique de confidentialité décrit les données collectées, leurs usages,
 
 ## Frais, annulation et remboursement
 
-L'application professionnelle Dusens est gratuite, sans achat intégré ni abonnement. Il n'existe donc aucun paiement dans l'application à annuler ou à rembourser. Tout contrat distinct de prestation d'études avec DUSENS RESEARCH conserve ses propres conditions commerciales ; ce document ne modifie ni ce contrat ni vos droits légaux.
+L'application professionnelle SensQuest est gratuite, sans achat intégré ni abonnement. Il n'existe donc aucun paiement dans l'application à annuler ou à rembourser. Tout contrat distinct de prestation d'études avec DUSENS RESEARCH conserve ses propres conditions commerciales ; ce document ne modifie ni ce contrat ni vos droits légaux.
 
 ## Accès au compte et demandes relatives aux données
 

@@ -1,14 +1,14 @@
-# Terms of Service — Dusens
+# Terms of Service — SensQuest
 
 **Version:** 22 September 2026
 
 ## Who operates the app
 
-Dusens is operated by DUSENS RESEARCH, N 91 Ali Khoudja, El Biar, Algeria. For support, account recovery, or privacy requests, contact +213 770 776 695.
+SensQuest is operated by DUSENS RESEARCH, N 91 Ali Khoudja, El Biar, Algeria. For support, account recovery, or privacy requests, contact +213 770 776 695.
 
-## Who may use Dusens
+## Who may use SensQuest
 
-Dusens is a field-survey tool for authorized adult investigators and supervisors. Your organization supplies your account and survey assignments. Use only your own authorized account and the permissions assigned to your role. Contact your organization if your access is incorrect or you cannot sign in.
+SensQuest is a field-survey tool for authorized adult investigators and supervisors. Your organization supplies your account and survey assignments. Use only your own authorized account and the permissions assigned to your role. Contact your organization if your access is incorrect or you cannot sign in.
 
 ## Responsible collection
 
@@ -24,7 +24,7 @@ The Privacy Policy explains the data collected, its uses, recipients, and your r
 
 ## Charges, cancellation, and refunds
 
-The Dusens workforce app is free to use and has no in-app purchases or subscriptions. There are no app charges to cancel or refund. Any separate research-service agreement with DUSENS RESEARCH has its own commercial terms; this document does not change that agreement or your statutory rights.
+The SensQuest workforce app is free to use and has no in-app purchases or subscriptions. There are no app charges to cancel or refund. Any separate research-service agreement with DUSENS RESEARCH has its own commercial terms; this document does not change that agreement or your statutory rights.
 
 ## Account access and data requests
 

@@ -1,4 +1,4 @@
-# Privacy Policy — Dusens {.unlisted}
+# Privacy Policy — SensQuest {.unlisted}
 
 **Effective date:** 22 September 2026
 
@@ -8,7 +8,7 @@
 
 ## Summary (plain language)
 
-Dusens is a field-survey app used by our trained investigators and supervisors to collect
+SensQuest is a field-survey app used by our trained investigators and supervisors to collect
 survey data in Algeria. In short:
 
 - We collect **survey answers**, and — when a survey requires it — **photos, audio

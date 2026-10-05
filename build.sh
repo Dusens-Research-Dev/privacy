@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rebuild the Dusens policy pages from src/*.md. Requires pandoc.
+# Rebuild the SensQuest policy pages from src/*.md. Requires pandoc.
 set -e
 cd "$(dirname "$0")"
 build(){
@@ -10,11 +10,11 @@ build(){
   [ "$lang" = ar ] && args+=( -M dir=rtl )
   pandoc "${args[@]}"
 }
-build en PRIVACY_POLICY.md    nav-en.html en.html "Privacy Policy — Dusens"
-build fr PRIVACY_POLICY.fr.md nav-fr.html fr.html "Privacy Policy — Dusens"
-build ar PRIVACY_POLICY.ar.md nav-ar.html ar.html "Privacy Policy — Dusens"
-build en TERMS_OF_SERVICE.md    nav-terms-en.html terms-en.html "Terms of Service — Dusens"
-build fr TERMS_OF_SERVICE.fr.md nav-terms-fr.html terms-fr.html "Terms of Service — Dusens"
-build ar TERMS_OF_SERVICE.ar.md nav-terms-ar.html terms-ar.html "Terms of Service — Dusens"
+build en PRIVACY_POLICY.md    nav-en.html en.html "Privacy Policy — SensQuest"
+build fr PRIVACY_POLICY.fr.md nav-fr.html fr.html "Privacy Policy — SensQuest"
+build ar PRIVACY_POLICY.ar.md nav-ar.html ar.html "Privacy Policy — SensQuest"
+build en TERMS_OF_SERVICE.md    nav-terms-en.html terms-en.html "Terms of Service — SensQuest"
+build fr TERMS_OF_SERVICE.fr.md nav-terms-fr.html terms-fr.html "Terms of Service — SensQuest"
+build ar TERMS_OF_SERVICE.ar.md nav-terms-ar.html terms-ar.html "Terms of Service — SensQuest"
 cp build/index.html index.html
 echo "Built privacy (en/fr/ar.html), terms (terms-en/fr/ar.html) and index.html"
